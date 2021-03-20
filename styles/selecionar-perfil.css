@@ -1,0 +1,17 @@
+.card{
+    margin-top: 10px;
+    text-align: left;
+}
+
+.card-title{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form{
+    width: 500px;
+}
+
+.form .form-select{
+    margin-bottom: 10px;
+}

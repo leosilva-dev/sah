@@ -1,0 +1,19 @@
+.row{
+    height: 90vh;
+}
+
+.bg-image{
+    border-radius: 5px;
+    background-image: url("../assets/clock.jpg");
+    background-repeat: round;
+}
+
+.login{
+    width: 550px;
+}
+
+
+.sign-up{
+    margin-top: 10px;
+    text-align: center;
+}

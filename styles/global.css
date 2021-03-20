@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto';
+}
+
+body{
+    background: #ececec;  
+}
+
+.container{
+    padding-top: 20px;
+}
