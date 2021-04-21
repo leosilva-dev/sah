@@ -52,26 +52,34 @@
                     <div class="card-body">
 
                     <?php
-                    include "db_connection.php";
-                    
-                    $data = $_POST['data'] ?? '';
-                    $hora_entrada = $_POST['hora_entrada'] ?? '';
-                    $hora_saida = $_POST['hora_saida'] ?? '';
-                    $justificativa = $_POST['justificativa'] ?? '';
-                    
-                    if($data != '' && $hora_entrada != '' && $hora_saida != '' && $justificativa != ''){
+                        include "db_connection.php";
+
+                        $data = $_POST['data'] ?? '';
+                        $hora_entrada = $_POST['hora_entrada'] ?? '';
+                        $hora_saida = $_POST['hora_saida'] ?? '';
+                        $justificativa = $_POST['justificativa'] ?? '';
                         
-                        $sql = "INSERT INTO `ajustes`
-                        (`data`, `hora_entrada`, `hora_saida`, `justificativa`) 
-                        VALUES ('$data','$hora_entrada','$hora_saida','$justificativa')";
-                        
-                        if(mysqli_query($conn, $sql)){
-                            message("O ajuste foi cadastrado com sucesso!","success");
-                        }else{
-                            message("Ocorreu um erro! O ajuste não pode ser cadastrado!","danger");
+                        if($data != '' && $hora_entrada != '' && $hora_saida != '' && $justificativa != ''){
+                            
+                            $sql = "INSERT INTO `ajustes`
+                            (`data`, `hora_entrada`, `hora_saida`, `justificativa`) 
+                            VALUES ('$data','$hora_entrada','$hora_saida','$justificativa')";
+                            
+
+                            mysqli_query($conn, $sql);
+
+                            header('Refresh: 0');
+
+                            // if(mysqli_query($conn, $sql)){
+                            //     message("O ajuste foi cadastrado com sucesso!","success");
+                            // }else{
+                            //     message("Ocorreu um erro! O ajuste não pode ser cadastrado!","danger");
+                            // }
+                            
+                            
                         }
                         
-                    }
+
                     ?>
 
                     <h5 class="card-title">Insere hora</h5>
@@ -126,12 +134,8 @@
                     <div class="card-body">
 
                     <?php
-                        
-
                         $sql = "SELECT * FROM ajustes";
-
                         $dados = mysqli_query($conn, $sql);
-
                     ?>
 
                     <form class="form" action="insere-ajuste.php" method="POST">
@@ -153,23 +157,27 @@
                          
                         <?php
                             while( $row = mysqli_fetch_assoc($dados)){
+                                $id = $row['id'];
                                 $data = $row['data'];
                                 $hora_entrada = $row['hora_entrada'];
                                 $hora_saida = $row['hora_saida'];
                                 $justificativa = $row['justificativa'];
 
+                                $data = formatDate($data);
+                                
+
                                 echo "  <tr>
                                             <td>$data</td>
                                             <td>$hora_entrada</td>
                                             <td>$hora_saida</td>
-                                            <td>$hora_entrada</td>
+                                            <td>$hora_saida - $hora_entrada</td>
                                             <td>$justificativa</td>
-                                            <td><a href='#' class='btn-icons'><i class='bi bi-trash'></i></a>
-                                                <a href='#' class='btn-icons'><i class='bi bi-pencil-square'></i></a>
+                                            <td>
+                                                <a href='editar-ajuste.php?id=$id' class='btn-icons'><i class='bi bi-pencil-square'></i></a>
+                                                <a href='#' class='btn-icons'><i class='bi bi-trash'></i></a>
                                             </td>
                                         </tr>";
                             }
-                          
                         ?>
                           
                         </tbody>
