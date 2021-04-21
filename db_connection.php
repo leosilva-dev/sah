@@ -13,4 +13,10 @@
                 $text
              </div>";
     }
+
+    function formatDate($date){
+        $sliced = explode('-', $date);
+        $fortatedDate = $sliced[2] . "/" . $sliced[1] . "/" . $sliced[0];
+        return $fortatedDate;
+    }
 ?>
