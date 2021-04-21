@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../styles/selecionar-perfil.css">
-    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="styles/selecionar-perfil.css">
+    <link rel="stylesheet" href="styles/global.css">
     <title>SAH | Selecionar perfil</title>
   </head>
   <body>
@@ -48,7 +48,7 @@
                         </select>
 
                         <div class="d-grid col-md-12">
-                          <a href="./insere-ajuste.html" class="btn btn-primary" type="button">Acessar</a>
+                          <a href="insere-ajuste.php" class="btn btn-primary" type="button">Acessar</a>
                         </div>
                     </div>
                     

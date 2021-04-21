@@ -8,15 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../styles/insere-ajuste.css">
-    <link rel="stylesheet" href="../styles/global.css">
-    <title>SAH | Insere ajuste</title>
+    <link rel="stylesheet" href="styles/visualizar-ajuste.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <title>SAH | Visualizar ajuste</title>
   </head>
   <body>
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><h3><i class="bi bi-clock-history"></i> SAH - Inserir ajuste</h3></a>
+        <a class="navbar-brand" href="#"><h3><i class="bi bi-clock-history"></i> SAH - Visualizar ajuste</h3></a>
       </div>
     </nav>
     
@@ -26,13 +26,13 @@
 
             <div class="col-sm-2">
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    <a href="insere-ajuste.php" class="list-group-item list-group-item-action" aria-current="true">
                       Inserir
                     </a>
-                    <a href="./editar-ajuste.html" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="editar-ajuste.php" class="list-group-item list-group-item-action" aria-current="true">
                         Editar
                     </a> 
-                    <a href="./visualizar-ajuste.html" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="visualizar-ajuste.php" class="list-group-item list-group-item-action active" aria-current="true">
                         Visualizar
                     </a>
                 </div>
@@ -50,45 +50,40 @@
 
                 <div class="card">
                     <div class="card-body">
-                    <h5 class="card-title">Insere hora</h5>
+                    <h5 class="card-title">Consulta</h5>
                     
                     <div class="form">
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="mb-3">
-                                    <label for="data-input" class="form-label">Data*</label>
-                                    <input type="date" class="form-control" id="data-input">
+                                    <label for="data-inicio-input" class="form-label">Data entrada*</label>
+                                    <input type="date" class="form-control" id="data-entrada-input">
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="mb-3">
-                                    <label for="hora-entrada-input" class="form-label">Hora entrada*</label>
-                                    <input type="text" class="form-control" id="hora-entrada-input" value="">
+                                    <label for="data-final-input" class="form-label">Data saída*</label>
+                                    <input type="date" class="form-control" id="data-saida-input">
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="mb-3">
-                                    <label for="hora-saida-input" class="form-label">Hora saída*</label>
-                                    <input type="text" class="form-control" id="hora-saida-input" value="">
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <label for="justificativa-select" class="form-label">Justificativa*</label>
                                 <select id="justificativa-select" class="form-select" aria-label="Default select example">
                                     <option selected value="prod-conteudo">Prod. Conteúdo</option>
                                     <option value="versionamento">Versionamento</option>
                                     <option value="capacitacao">Capacitação</option>
+                                    <option value="emprestimo">Empréstimo</option>
                                 </select>
                             </div>
+                            
                         </div>
                         
                         <div class="row">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-3"></div>
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <div class="d-grid">
-                                    <button id="insere-button" class="btn btn-primary" type="button">Insere hora</button>
+                                    <button id="consultar-button" class="btn btn-primary" type="button">Consultar</button>
                                 </div>
                             </div>
                         </div>
@@ -160,22 +155,26 @@
                         </tbody>
                       </table>
 
-                      <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-3">
-                            <div class="d-grid">
-                                <button class="btn btn-outline-primary" type="button">Voltar</button>
+                        <div class="row">
+                            <div class="col-sm-9"></div>
+                            <div class="col-sm-1">
+                                <a href="#"><h2><i class="bi bi-printer"></i></h2></a>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="d-grid">
-                                <button class="btn btn-primary" type="button">Enviar para análise</button>
+                            <div class="col-sm-1">
+                                <a href="#"><h2><i class="bi bi-file-earmark-excel"></i></h2></a>
+                            </div>
+                            <div class="col-sm-1">
+                                <a href="#"><h2><i class="bi bi-file-earmark-arrow-down"></i></h2></a>
                             </div>
                         </div>
                     </div>
 
-                      
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Status</h5>
+                            <p>Enviado para o coordernador</p>
+                        </div>
+                    </div>
                     
                     
                     
@@ -194,6 +193,6 @@
         </div>
     </div>
     
-    <script src="../scripts/insere.js"></script>
+    <script src="scripts/visualiza.js"></script>
   </body>
 </html>

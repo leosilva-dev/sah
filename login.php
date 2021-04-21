@@ -8,8 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="../styles/login.css">
-    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/global.css">
     <title>SAH - Login</title>
   </head>
   <body>
@@ -45,8 +45,8 @@
                     <label class="form-check-label" for="keepconnected">Mantenha-me conectado</label>
                   </div>
                   <div class="d-grid gap-2">
-                    <a id="login-button" class="btn btn-primary" type="button">Entrar</a>
-                    <!-- href="./selecionar-perfil.html" -->
+                    <a id="login-button" class="btn btn-primary" type="button" href="selecionar-perfil.php">Entrar</a>
+                    <!--  -->
                     <button type="button" class="btn btn-link">Esqueceu sua senha?</button>
                   </div>
                 </form>
@@ -69,6 +69,6 @@
       </div>
     </div>
   
-    <script src="../scripts/main.js"></script>
+    <script src="scripts/login.js"></script>
   </body>
 </html>
