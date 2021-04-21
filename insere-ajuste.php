@@ -69,14 +69,6 @@
                             mysqli_query($conn, $sql);
 
                             header('Refresh: 0');
-
-                            // if(mysqli_query($conn, $sql)){
-                            //     message("O ajuste foi cadastrado com sucesso!","success");
-                            // }else{
-                            //     message("Ocorreu um erro! O ajuste não pode ser cadastrado!","danger");
-                            // }
-                            
-                            
                         }
                         
 
