@@ -72,7 +72,7 @@
                                     <option selected value="">Selecione</option>
                                     <option value="versionamento">Versionamento</option>
                                     <option value="capacitacao">Capacitação</option>
-                                    <option value="emprestimo">Empréstimo</option>
+                                    <option value="prod-conteudo">Prod. Conteúdo</option>
                                 </select>
                             </div>
                             
