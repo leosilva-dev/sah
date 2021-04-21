@@ -102,6 +102,14 @@
                     <div class="card-body">
                     <h5 class="card-title">Lista de horas</h5>
 
+                    <?php
+                    include "db_connection.php";
+                        $sql = "SELECT * FROM ajustes";
+                        $dados = mysqli_query($conn, $sql);
+                    ?>
+
+                    <form class="form" action="visualizar-ajuste.php" method="POST">
+
                     <table class="table table-bordered">
                         <thead>
                           <tr>
@@ -114,46 +122,31 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>10/10/2016</td>
-                            <td>08:00</td>
-                            <td>12:00</td>
-                            <td>4</td>
-                            <td>Versionamento</td>
-                            <td><a href="#" class="btn-icons"><i class="bi bi-trash"></i></a>
-                                <a href="#" class="btn-icons"><i class="bi bi-pencil-square"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>10/10/2016</td>
-                            <td>13:00</td>
-                            <td>17:00</td>
-                            <td>4</td>
-                            <td>Produção</td>
-                            <td><a href="#" class="btn-icons"><i class="bi bi-trash"></i></a>
-                                <a href="#" class="btn-icons"><i class="bi bi-pencil-square"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>11/10/2016</td>
-                            <td>10:00</td>
-                            <td>12:00</td>
-                            <td>2</td>
-                            <td>Capacitação</td>
-                            <td><a href="#" class="btn-icons"><i class="bi bi-trash"></i></a>
-                                <a href="#" class="btn-icons"><i class="bi bi-pencil-square"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>10</td>
-                            <td></td>
-                            <td></td>
-                          </tr>
+                        <?php
+                            while( $row = mysqli_fetch_assoc($dados)){
+                                $data = $row['data'];
+                                $hora_entrada = $row['hora_entrada'];
+                                $hora_saida = $row['hora_saida'];
+                                $justificativa = $row['justificativa'];
+
+                                $data = formatDate($data);
+                                
+
+                                echo "  <tr>
+                                            <td>$data</td>
+                                            <td>$hora_entrada</td>
+                                            <td>$hora_saida</td>
+                                            <td>$hora_entrada</td>
+                                            <td>$justificativa</td>
+                                            <td><a href='#' class='btn-icons'><i class='bi bi-trash'></i></a>
+                                                <a href='#' class='btn-icons'><i class='bi bi-pencil-square'></i></a>
+                                            </td>
+                                        </tr>";
+                            }
+                        ?>
                         </tbody>
-                      </table>
+                        </table>
+                        </form>
 
                         <div class="row">
                             <div class="col-sm-9"></div>
