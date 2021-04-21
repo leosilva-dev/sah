@@ -14,6 +14,23 @@
   </head>
   <body>
 
+  <?php
+    include "db_connection.php";
+    $id = $_GET['id'] ?? '';
+
+    if($id != ""){
+        $sql = "SELECT * FROM ajustes WHERE id = $id";
+
+        $dados = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($dados);
+    }else{
+        $row['hora_entrada'] = '';
+        $row['hora_saida'] = '';
+        $row['justificativa'] = '';
+    }
+    
+  ?>
+
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><h3><i class="bi bi-clock-history"></i> SAH - Editar ajuste</h3></a>
@@ -56,20 +73,20 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="mb-3">
-                                    <label for="data-entrada-input" class="form-label">Data entrada*</label>
-                                    <input type="date" class="form-control" id="data-entrada-input">
+                                    <label for="data-entrada-input" class="form-label">Hora entrada*</label>
+                                    <input type="text" class="form-control" id="hora-entrada-input" value="<?php echo $row['hora_entrada']; ?>">
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="mb-3">
-                                    <label for="data-saida-input" class="form-label">Data saída*</label>
-                                    <input type="date" class="form-control" id="data-saida-input">
+                                    <label for="data-saida-input" class="form-label">Hora saída*</label>
+                                    <input type="text" class="form-control" id="hora-saida-input" value="<?php echo $row['hora_saida']; ?>">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="justificativa-select" class="form-label">Justificativa*</label>
-                                <select id="justificativa-select" class="form-select" aria-label="Default select example">
-                                    <option selected value="prod-conteudo">Prod. Conteúdo</option>
+                                <select id="justificativa-select" class="form-select">
+                                    <option value="<?php echo $row['justificativa']; ?>"><?php echo $row['justificativa']; ?></option>
                                     <option value="versionamento">Versionamento</option>
                                     <option value="capacitacao">Capacitação</option>
                                     <option value="emprestimo">Empréstimo</option>
@@ -102,7 +119,6 @@
                     <div class="card-body">
                     <h5 class="card-title">Lista de horas</h5>
                     <?php
-                    include "db_connection.php";
                         $sql = "SELECT * FROM ajustes";
                         $dados = mysqli_query($conn, $sql);
                     ?>
@@ -123,6 +139,7 @@
                             <tbody>
                             <?php
                             while( $row = mysqli_fetch_assoc($dados)){
+                                $id = $row['id'];
                                 $data = $row['data'];
                                 $hora_entrada = $row['hora_entrada'];
                                 $hora_saida = $row['hora_saida'];
@@ -137,8 +154,9 @@
                                             <td>$hora_saida</td>
                                             <td>$hora_entrada</td>
                                             <td>$justificativa</td>
-                                            <td><a href='#' class='btn-icons'><i class='bi bi-trash'></i></a>
-                                                <a href='#' class='btn-icons'><i class='bi bi-pencil-square'></i></a>
+                                            <td>
+                                            <a href='editar-ajuste.php?id=$id' class='btn-icons'><i class='bi bi-pencil-square'></i></a>
+                                            <a href='#' class='btn-icons'><i class='bi bi-trash'></i></a>
                                             </td>
                                         </tr>";
                             }
