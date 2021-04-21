@@ -67,14 +67,14 @@
                     VALUES ('$data','$hora_entrada','$hora_saida','$justificativa')";
                     
                     if(mysqli_query($conn, $sql)){
-                      echo "Ajuste cadastrado com sucesso!";
+                      message("O ajuste foi cadastrado com sucesso!","success");
                     }else{
-                      echo "Ajuste não foi cadastrado!";
+                      message("Ocorreu um erro! O ajuste não pode ser cadastrado!","danger");
                     }
 
 
                     ?>
-                    
+                    <a href="insere-ajuste.php" class="btn btn-primary">Voltar</a>
                     
                     
                           
